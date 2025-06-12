@@ -1,67 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Namco Auto Queue</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        body {
-            width: 350px;
-            font-family: 'Inter', sans-serif;
-        }
-        .status-indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px;
-        }
-        .status-active {
-            background-color: #22c55e;
-            box-shadow: 0 0 8px #22c55e;
-        }
-        .status-inactive {
-            margin-left: 8px;
-            background-color: #ef4444;
-            box-shadow: 0 0 8px #ef4444;
-        }
-        #urlInput {
-            width: 85%;
-            margin-top: 8px;
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Namco Auto Queue</title>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-100 p-4">
-    <div class="space-y-4">
-        <div class="flex items-center justify-between">
-            <h1 class="text-lg font-bold text-gray-800">Namco Auto-Queue</h1>
-            <div class="flex items-center">
-                <span class="status-indicator status-inactive" id="statusIndicator"></span>
-                <span id="statusText" class="text-sm text-gray-600">Inactive</span>
-            </div>
-        </div>
-        </br>
-        <div>
-            <label for="urlInput" class="block text-sm font-medium text-gray-700">Target Booth URL</label>
-            <div class="mt-1">
-                <input type="url" id="urlInput" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" placeholder="https://app.online-crane.namco.co.jp/play?...">
-            </div>
-        </div>
-        </br>
-        <div>
-            <label for="intervalSlider" class="block text-sm font-medium text-gray-700">Check Interval: <span id="intervalValue">1</span> seconds</label>
-            <input type="range" id="intervalSlider" min="1" max="10" value="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-        </div>
-        </br>
-        <div class="flex items-center justify-between">
-            <button id="saveButton" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                Save
-            </button>
-            <button id="resetButton" class="text-sm text-gray-500 hover:text-gray-700">Reset URL</button>
-        </div>
-        <div id="statusMessage" class="text-sm text-green-600 font-medium h-4"></div>
-    </div>
-    <script src="popup.js"></script>
+
+<body class="font-inter antialiased">
+	<div class="main-container">
+		<!-- Header Section -->
+		<header class="header-section">
+			<div class="header-content">
+				<h1 class="text-2xl font-bold text-gray-900">Namco Auto-Queue</h1>
+				<div class="status-container">
+					<!-- Status indicator: dynamically changes color and shadow based on status -->
+					<span id="statusIndicator" class="status-indicator inactive"></span>
+					<!-- Status text: updates dynamically (e.g., "Active", "Inactive") -->
+					<span id="statusText" class="text-sm font-semibold text-gray-600">Inactive</span>
+				</div>
+			</div>
+		</header>
+
+		<!-- Input Field Section: Target Booth URL -->
+		<section class="space-y-2">
+			<label for="urlInput" class="block text-sm font-medium text-gray-700">Target Booth URL</label>
+			<input type="url" id="urlInput" class="url-input"
+				placeholder="https://app.online-crane.namco.co.jp/play/...">
+		</section>
+
+		<!-- Slider Section: Check Interval -->
+		<section class="space-y-3">
+			<label for="intervalSlider" class="block text-sm font-medium text-gray-700">
+				Check Interval: <span id="intervalValue" class="text-indigo-600 font-bold">1</span> seconds
+			</label>
+			<input type="range" id="intervalSlider" min="1" max="10" value="1" class="interval-slider">
+		</section>
+
+		<!-- Status Message Display -->
+		<div id="statusMessage" class="status-message"></div>
+
+		<!-- Action Buttons Section -->
+		<div class="action-buttons-section">
+			<!-- Save Settings Button -->
+			<button id="saveButton" class="save-button">
+				Save Settings
+			</button>
+			<!-- Reset URL Button -->
+			<button id="resetButton" class="reset-button">
+				Reset URL
+			</button>
+		</div>
+	</div>
+	<script src="popup.js"></script>
 </body>
+
 </html>
