@@ -9,32 +9,32 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 
-<body class="font-inter antialiased">
+<body>
 	<div class="main-container">
 		<!-- Header Section -->
 		<header class="header-section">
 			<div class="header-content">
-				<h1 class="text-2xl font-bold text-gray-900">Namco Online Crane Auto-Queue</h1>
+				<h1 class="header-title">Namco Online Crane Auto-Queue</h1>status-inactive
 				<div class="status-container">
 					<!-- Status indicator: dynamically changes color and shadow based on status -->
 					<span id="statusIndicator" class="status-indicator inactive"></span>
 					<!-- Status text: updates dynamically (e.g., "Active", "Inactive") -->
-					<span id="statusText" class="text-sm font-semibold text-gray-600">Inactive</span>
+					<span id="statusText" class="status-text">Inactive</span>
 				</div>
 			</div>
 		</header>
 
 		<!-- Input Field Section: Target Booth URL -->
-		<section class="space-y-2">
-			<label for="urlInput" class="block text-sm font-medium text-gray-700">Target Booth URL</label>
+		<section class="input-section">
+			<label for="urlInput" class="input-label">Target Booth URL</label>
 			<input type="url" id="urlInput" class="url-input"
 				placeholder="https://app.online-crane.namco.co.jp/play?...">
 		</section>
 
 		<!-- Slider Section: Check Interval -->
-		<section class="space-y-3">
-			<label for="intervalSlider" class="block text-sm font-medium text-gray-700">
-				Check Interval: <span id="intervalValue" class="text-indigo-600 font-bold">1</span> seconds
+		<section class="slider-section">
+			<label for="intervalSlider" class="input-label">
+				Check Interval: <span id="intervalValue" class="interval-value">1</span> seconds
 			</label>
 			<input type="range" id="intervalSlider" min="1" max="10" value="1" class="interval-slider">
 		</section>

@@ -235,3 +235,36 @@ body {
 	color: #4b5563;
 	height: 1rem;
 }
+
+.header-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #111827;
+}
+
+.status-text {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: #4b5563;
+}
+
+.input-label {
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #374151;
+	margin-bottom: 0.5rem;
+}
+
+.input-section {
+	margin-bottom: 1rem;
+}
+
+.slider-section {
+	margin-bottom: 1.5rem;
+}
+
+.interval-value {
+	color: #4f46e5;
+	font-weight: 700;
+}

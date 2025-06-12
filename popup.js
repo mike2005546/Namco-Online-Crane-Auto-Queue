@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		}, (response) => {
 			if (chrome.runtime.lastError) {
 				console.error('Error updating interval:', chrome.runtime.lastError);
-				statusMessage.style.color = 'rgb(220 38 38)';
+				statusMessage.style.color = 'rgb(220, 38, 38)';
 				statusMessage.textContent = 'Failed to update interval';
 			} else {
 				console.log('Interval updated successfully');
-				statusMessage.style.color = 'rgb(34 197 94)';
+				statusMessage.style.color = 'rgb(34, 197, 94)';
 				statusMessage.textContent = `Check interval set to ${value} seconds`;
 				setTimeout(() => {
 					statusMessage.textContent = '';
@@ -52,13 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Function to update status indicator
 	function updateStatus(isActive) {
 		if (isActive) {
-			statusIndicator.className = 'status-indicator status-active';
+			statusIndicator.className = 'status-indicator active';
 			statusText.textContent = 'Active';
-			statusText.className = 'text-sm text-green-600';
+			statusText.style.color = 'rgb(22, 163, 74)'; // green-600
 		} else {
-			statusIndicator.className = 'status-indicator status-inactive';
+			statusIndicator.className = 'status-indicator inactive';
 			statusText.textContent = 'Inactive';
-			statusText.className = 'text-sm text-gray-600';
+			statusText.style.color = 'rgb(75, 85, 99)'; // gray-600
 		}
 	}
 
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				setTimeout(() => window.close(), 750); // Close popup after a short delay
 			});
 		} else {
-			statusMessage.style.color = 'rgb(220 38 38)'; // red-600
+			statusMessage.style.color = 'rgb(220, 38, 38)'; // red-600
 			statusMessage.textContent = 'Invalid Namco play URL.';
 		}
 	});
@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	resetButton.addEventListener('click', () => {
 		chrome.storage.local.remove(['targetUrl'], () => {
 			urlInput.value = '';
+			statusMessage.style.color = 'rgb(75, 85, 99)';
 			statusMessage.textContent = 'URL reset. Auto-queue is now off.';
 			updateStatus(false);
 			// Signal the background script to stop the check
